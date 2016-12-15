@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0
+}
+
+.map {
+    width: 50vw;
+    height: 100vh;
+    background-color: #eee;
+    position: absolute;
+    z-index: 1;
+}
+
+#left {
+    border-right: 1px solid #777;
+    left: 0;
+    top: 0;
+}
+
+#right {
+    right: 0;
+    top: 0;
+}
+
+.search {
+    border: 1px solid white;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    padding: 10px;
+    max-width: 250px;
+    width: 40vw;
+
+    margin: 1em;
+    z-index: 2;
+}
+
+.search:focus {
+    border: 1px solid #47f;
+}
+

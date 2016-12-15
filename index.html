@@ -9,7 +9,14 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <input class="search" id="leftSearch" type="text" />
+    <input class="search" id="rightSearch" type="text" />
+    <div class="map" id="left"></div>
+    <div class="map" id="right"></div>
 
     <script src="js/main.js"></script>
+    <script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPNgUIzzVu3T2mjDoPWt8luEzc0PPmUY8&callback=init&libraries=places">
+    </script>
 </body>
 </html>
