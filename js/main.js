@@ -1,6 +1,8 @@
 let lMap, rMap;
 let leftLevel = 0, rightLevel = 0;
 
+let names = new Array(2);
+
 function init() {
     let options = {
         zoom: 9,
@@ -35,8 +37,8 @@ function init() {
     lMap.controls[google.maps.ControlPosition.TOP_LEFT].push($("#leftSearch"));
     rMap.controls[google.maps.ControlPosition.TOP_RIGHT].push($("#rightSearch"));
 
-    lBox.addListener("places_changed", handleSearch.bind(lBox, lMap));
-    rBox.addListener("places_changed", handleSearch.bind(rBox, rMap));
+    lBox.addListener("places_changed", handleSearch.bind(lBox, "L"));
+    rBox.addListener("places_changed", handleSearch.bind(rBox, "R"));
 }
 
 function handleLeftZoom() {
@@ -53,9 +55,19 @@ function handleRightZoom() {
     }
 }
 
-function handleSearch(map) {
+function handleSearch(side) {
+    let map = side === "L" ? lMap : rMap;
     let places = this.getPlaces();
     map.setCenter(places[0].geometry.location);
+
+    let index = side === "L" ? 0 : 1;
+    names[index] = places[0].vicinity;
+
+    if (names[0] && names[1]) {
+        document.title = `Comparison: ${names.join(" & ")}`;
+    } else {
+        document.title = "Map Comparison";
+    }
 }
 
 function handleMapType() {
