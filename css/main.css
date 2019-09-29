@@ -42,3 +42,37 @@ body {
     border: 1px solid #47f;
 }
 
+
+#ruler {
+    display: flex;
+    align-items: center;
+}
+
+#rulerToggle {
+    outline: none;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    padding: 8px;
+
+    margin: 1em;
+    z-index: 2;
+}
+
+
+#rulerToggle:hover {
+    background: #ebebeb;
+    cursor: pointer;
+}
+
+#rulerIcon.active {
+    fill: #8833cc;
+}
+
+#rulerText {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+#rulerText.white {
+    color: white;
+}
